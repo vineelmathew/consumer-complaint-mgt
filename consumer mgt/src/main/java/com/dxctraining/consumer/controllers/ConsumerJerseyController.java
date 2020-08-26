@@ -10,10 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
 
 @Component
 @Path("/consumers")
@@ -36,6 +34,21 @@ public class ConsumerJerseyController {
         ConsumerDto res=consumerUtil.consumerDto(consumer);
         return res;
     }
+
+    @Path("/get/{id}")
+    @Produces("application/json")
+    @GET
+    public ConsumerDto getConsumerById(@PathParam("id") int id)
+    {
+        Consumer consumer=consumerService.ConsumerById(id);
+        ConsumerDto dto=consumerUtil.consumerDto(consumer);
+        return dto;
+    }
+
+
+
+
+
 
 
 
