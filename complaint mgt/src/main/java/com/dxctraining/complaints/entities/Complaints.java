@@ -12,9 +12,13 @@ public class Complaints {
     private String descp;
     private int consumerId;
     public Complaints(String descp,int consumerId) {
-
         this.descp = descp;
         this.consumerId=consumerId;
+    }
+
+    public Complaints()
+    {
+
     }
 
     public int getId() {

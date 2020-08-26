@@ -6,11 +6,15 @@ public class ComplaintDto {
     private int consumerId;
     private String consumerName;
 
-    public ComplaintDto(int id, String descp,int consumerId,String consumerName) {
+    public ComplaintDto(int id, String description, int consumerId, String consumerName) {
         this.id = id;
-        this.description = descp;
-        this.consumerId=consumerId;
-        this.consumerName=consumerName;
+        this.description = description;
+        this.consumerId = consumerId;
+        this.consumerName = consumerName;
+    }
+    public ComplaintDto()
+    {
+
     }
 
     public int getId() {

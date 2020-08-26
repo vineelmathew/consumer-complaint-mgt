@@ -46,17 +46,22 @@ public class ComplaintJerseyController {
         return complaintDto;
 
     }
+
     private ConsumerDto fetchfromConsumerId(int consumerid) {
       String url="http://localhost:7777/consumers/get/"+consumerid;
       ConsumerDto consumerDto=restTemplate.getForObject(url,ConsumerDto.class);
       return consumerDto;
     }
-    @Path("/by/{id}")
-    @Produces("application/json")
+
+
+    @Path("/get/{id}")
     @GET
+    @Consumes("application/json")
+    @Produces("application/json")
 public ComplaintDto complaintDto(@PathParam("id") int id)
     {
-        Complaints complaints=complaintService.complaintById(id);
+        System.out.println(id);
+        Complaints complaints=complaintService.complaintById(1);
         int conid=complaints.getConsumerId();
         ConsumerDto consumerDto = fetchfromConsumerId(conid);
         System.out.println("consumer name is="+consumerDto.getName());
